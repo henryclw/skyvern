@@ -167,6 +167,6 @@ if SettingsManager.get_settings().ENABLE_AZURE:
 if SettingsManager.get_settings().ENABLE_OLLAMA:
     LLMConfigRegistry.register_config(
         "OLLAMA_LLAVA",
-        LLMConfig("ollama/llava-llama3:8b-v1.1-q4_0", ["OLLAMA_URL"], supports_vision=True, add_assistant_prefix=False)
+        LLMConfig("ollama/llama3:8b-instruct-q8_0", ["OLLAMA_URL"], supports_vision=True, add_assistant_prefix=False)
     )
 
