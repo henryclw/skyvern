@@ -1,3 +1,6 @@
+# Ignore development file that contains lots of useful commands
+dev.md
+
 ## Original ignores
 *.env
 .vscode
