@@ -31,7 +31,8 @@ async def llm_messages_builder(
                 {
                     "type": "image_url",
                     "image_url": {
-                        "url": f"data:image/png;base64,{encoded_image}",
+                        # "url": f"data:image/png;base64,{encoded_image}",
+                        "url": f"{encoded_image}",
                     },
                 }
             )

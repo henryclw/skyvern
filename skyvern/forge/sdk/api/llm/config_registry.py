@@ -50,6 +50,7 @@ if not any(
         SettingsManager.get_settings().ENABLE_ANTHROPIC,
         SettingsManager.get_settings().ENABLE_AZURE,
         SettingsManager.get_settings().ENABLE_BEDROCK,
+        SettingsManager.get_settings().ENABLE_OLLAMA,
     ]
 ):
     raise NoProviderEnabledError()
@@ -162,3 +163,10 @@ if SettingsManager.get_settings().ENABLE_AZURE:
             add_assistant_prefix=False,
         ),
     )
+
+if SettingsManager.get_settings().ENABLE_OLLAMA:
+    LLMConfigRegistry.register_config(
+        "OLLAMA_LLAVA",
+        LLMConfig("ollama/llava-llama3:8b-v1.1-q4_0", ["OLLAMA_URL"], supports_vision=True, add_assistant_prefix=False)
+    )
+

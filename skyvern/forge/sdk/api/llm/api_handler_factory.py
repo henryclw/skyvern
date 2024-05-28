@@ -191,6 +191,7 @@ class LLMAPIHandlerFactory:
                     model=llm_config.model_name,
                     messages=messages,
                     timeout=SettingsManager.get_settings().LLM_CONFIG_TIMEOUT,
+                    api_base="http://host.docker.internal:9111",
                     **active_parameters,
                 )
                 LOG.info("LLM API call successful", llm_key=llm_key, model=llm_config.model_name)
