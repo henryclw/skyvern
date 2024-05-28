@@ -5,6 +5,22 @@ class SampleTaskRequest(TaskRequest):
     name: str
 
 
+local_test_sample_data = SampleTaskRequest(
+    name="local_test",
+    url="https://form.jotform.com/241472287797370",
+    navigation_goal="Submit the job form",
+    data_extraction_goal="Extract all digital information",
+    navigation_payload={
+        "First Name": "John",
+        "Last Name": "White",
+        "Email Address": "notarealemail@gmail.com",
+        "Phone": "96908116",
+        "Cover Letter": "I'm doing good!",
+    },
+
+)
+
+
 bci_seguros_sample_data = SampleTaskRequest(
     name="bci_seguros",
     url="https://www.bciseguros.cl/nuestros_seguros/personas/seguro-automotriz/",
@@ -239,4 +255,5 @@ supported_examples = [
     finditparts_sample_data,
     california_edd_sample_data,
     bci_seguros_sample_data,
+    local_test_sample_data,
 ]
