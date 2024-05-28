@@ -115,7 +115,9 @@ class LLMAPIHandlerFactory:
                     artifact_type=ArtifactType.LLM_RESPONSE,
                     data=response.model_dump_json(indent=2).encode("utf-8"),
                 )
-                llm_cost = litellm.completion_cost(completion_response=response)
+                # temp fix for local model
+                # llm_cost = litellm.completion_cost(completion_response=response)
+                llm_cost = 0
                 await app.DATABASE.update_step(
                     task_id=step.task_id,
                     step_id=step.step_id,
@@ -208,7 +210,9 @@ class LLMAPIHandlerFactory:
                     artifact_type=ArtifactType.LLM_RESPONSE,
                     data=response.model_dump_json(indent=2).encode("utf-8"),
                 )
-                llm_cost = litellm.completion_cost(completion_response=response)
+                # temp fix for local model
+                # llm_cost = litellm.completion_cost(completion_response=response)
+                llm_cost = 0
                 await app.DATABASE.update_step(
                     task_id=step.task_id,
                     step_id=step.step_id,
