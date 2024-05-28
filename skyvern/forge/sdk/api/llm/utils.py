@@ -24,7 +24,8 @@ async def llm_messages_builder(
         }
     ]
 
-    if screenshots:
+    # temporary disable for local model
+    if screenshots and False:
         for screenshot in screenshots:
             encoded_image = base64.b64encode(screenshot).decode("utf-8")
             messages.append(
