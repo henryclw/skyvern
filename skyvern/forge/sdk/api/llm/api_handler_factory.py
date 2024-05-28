@@ -98,6 +98,7 @@ class LLMAPIHandlerFactory:
                 )
             try:
                 response = await router.acompletion(model=main_model_group, messages=messages, **parameters)
+                LOG.info(f"LLM response is {response}")
             except openai.OpenAIError as e:
                 raise LLMProviderError(llm_key) from e
             except Exception as e:
@@ -194,6 +195,7 @@ class LLMAPIHandlerFactory:
                     api_base="http://host.docker.internal:9111",
                     **active_parameters,
                 )
+                LOG.debug(f"LLM API call successful with response {response}")
                 LOG.info("LLM API call successful", llm_key=llm_key, model=llm_config.model_name)
             except openai.OpenAIError as e:
                 raise LLMProviderError(llm_key) from e
